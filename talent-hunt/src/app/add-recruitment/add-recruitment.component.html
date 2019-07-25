@@ -1,0 +1,47 @@
+<h1 style="text-align: center;">Welcome To Add Recruitment</h1>
+<form method="" #RecruitmentForm="ngForm" (ngSubmit)="submitForm(RecruitmentForm)">
+    <div class="card card-body col-md-4 offset-4">
+        <Label class=" offset-4">Interview Schedule</Label>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Client name</label>
+            <input type="text" class="form-control" name="clientName" id="clientName" placeholder="Enter client name"
+                ngModel #clientName="ngModel" required minlength="3">
+            <div class="alert alert-danger mt-2" *ngIf="clientName.touched && clientName.invalid">
+                <p *ngIf="clientName.errors.required">This field cannot be empty</p>
+                <p *ngIf="clientName.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">No of Position</label>
+            <input type="email" class="form-control" name="noPosition" id="noPosition" placeholder="Enter positions"
+                ngModel #noPosition="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Select stack</label>
+            <input type="text" class="form-control" name="stack" id="stack" placeholder="Enter stack" ngModel
+                #stack="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Experiance Req</label>
+            <input type="text" class="form-control" name="expReq" id="expReq" placeholder=" Req. Experiance" ngModel
+                #expReq="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Job Desc</label>
+            <input type="text" class="form-control" name="jobDesc" id="jobDesc" placeholder="Enter Job Desc" ngModel
+                #jobDesc="ngModel">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Location</label>
+            <input type="text" class="form-control" name="location" id="location" placeholder="Enter location" ngModel
+                #location="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Closing date</label>
+            <input type="datetime" class="form-control" name="date" id="date" placeholder="Enter ECTC" ngModel
+                #date="ngModel">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

@@ -1,0 +1,142 @@
+<p>add-schedule works!</p>
+<form method="" #ScheduleForm="ngForm" (ngSubmit)="submitForm(ScheduleForm)">
+    <div class="card card-body col-md-4 offset-4">
+        <Label class=" offset-4">Interview Schedule</Label>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Candidate name</label>
+            <input type="text" class="form-control" name="cname" id="cname" placeholder="Enter Candidate name" ngModel
+                #cname="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="cname.touched && cname.invalid">
+                <p *ngIf="cname.errors.required">This field cannot be empty</p>
+                <p *ngIf="cname.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" ngModel
+                #email="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="email.touched && email.invalid">
+                <p *ngIf="email.errors.required">This field cannot be empty</p>
+                <p *ngIf="email.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">CCTC</label>
+            <input type="text" class="form-control" name="cctc" id="cctc" placeholder="Enter CCTC" ngModel
+                #cctc="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="cctc.touched && cctc.invalid">
+                <p *ngIf="cctc.errors.required">This field cannot be empty</p>
+                <p *ngIf="cctc.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">select gender</label>
+            <input type="text" class="form-control" name="gender" id="gender" placeholder="Enter gender" ngModel
+                #gender="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="cctc.touched && cctc.invalid">
+                <p *ngIf="cctc.errors.required">This field cannot be empty</p>
+                <p *ngIf="cctc.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Current org</label>
+            <input type="text" class="form-control" name="currentOrg" id="currentOrg" placeholder="Enter Current org"
+                ngModel #currentOrg="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="currentOrg.touched && currentOrg.invalid">
+                <p *ngIf="currentOrg.errors.required">This field cannot be empty</p>
+                <p *ngIf="currentOrg.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">ECTC</label>
+            <input type="text" class="form-control" name="ectc" id="ectc" placeholder="Enter ECTC" ngModel
+                #ectc="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="ectc.touched && ectc.invalid">
+                <p *ngIf="ectc.errors.required">This field cannot be empty</p>
+                <p *ngIf="ectc.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1"> Schedule date and Time</label>
+            <input type="datetime" class="form-control" name="date" id="date" placeholder="Enter Schedule date and Time"
+                ngModel #date="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="date.touched && date.invalid">
+                <p *ngIf="date.errors.required">This field cannot be empty</p>
+                <p *ngIf="date.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Total Experiance</label>
+            <input type="text" class="form-control" name="totalExp" id="totalExp" placeholder="Enter Total Experiance"
+                ngModel #totalExp="ngModel" minlength="1" required>
+            <div class="alert alert-danger mt-2" *ngIf="totalExp.touched && totalExp.invalid">
+                <p *ngIf="totalExp.errors.required">This field cannot be empty</p>
+                <p *ngIf="totalExp.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Relevent exp</label>
+            <input type="text" class="form-control" name="releventExp" id="releventExp" placeholder="Enter Relevent exp"
+                ngModel #releventExp="ngModel" minlength="1" required>
+            <div class="alert alert-danger mt-2" *ngIf="releventExp.touched && releventExp.invalid">
+                <p *ngIf="releventExp.errors.required">This field cannot be empty</p>
+                <p *ngIf="releventExp.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Notice period</label>
+            <input type="text" class="form-control" name="noticePeriod" id="noticePeriod"
+                placeholder="Enter Notice period" ngModel #noticePeriod="ngModel" minlength="1" required>
+            <div class="alert alert-danger mt-2" *ngIf="noticePeriod.touched && noticePeriod.invalid">
+                <p *ngIf="noticePeriod.errors.required">This field cannot be empty</p>
+                <p *ngIf="noticePeriod.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Select stack</label>
+            <input type="text" class="form-control" name="stack" id="stack" placeholder="Enter stack" ngModel
+                #stack="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="stack.touched && stack.invalid">
+                <p *ngIf="stack.errors.required">This field cannot be empty</p>
+                <p *ngIf="stack.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Location</label>
+            <input type="text" class="form-control" name="location" id="location" placeholder="Enter location" ngModel
+                #location="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="location.touched && location.invalid">
+                <p *ngIf="location.errors.required">This field cannot be empty</p>
+                <p *ngIf="location.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Contact no</label>
+            <input type="number" class="form-control" name="contactNo" id="contactNo" placeholder="Enter Contact no"
+                ngModel #contactNo="ngModel" minlength="5" required>
+            <div class="alert alert-danger mt-2" *ngIf="contactNo.touched && contactNo.invalid">
+                <p *ngIf="contactNo.errors.required">This field cannot be empty</p>
+                <p *ngIf="contactNo.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Ready to relocate</label>
+            <input type="text" class="form-control" name="relocate" id="relocate" placeholder="Enter relocation" ngModel
+                #relocate="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="relocate.touched && relocate.invalid">
+                <p *ngIf="relocate.errors.required">This field cannot be empty</p>
+                <p *ngIf="relocate.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Interview Pannel</label>
+            <input type="text" class="form-control" name="interviewPannel" id="interviewPannel"
+                placeholder="Enter Interview Pannel" ngModel #interviewPannel="ngModel" minlength="3" required>
+            <div class="alert alert-danger mt-2" *ngIf="interviewPannel.touched && interviewPannel.invalid">
+                <p *ngIf="interviewPannel.errors.required">This field cannot be empty</p>
+                <p *ngIf="interviewPannel.errors.minlength">This field should contain atleast 3 characters</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

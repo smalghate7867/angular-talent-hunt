@@ -1,0 +1,187 @@
+<p>view-schedule works!</p>
+
+<div class="container mt-2 mb-4">
+    <input type="text" [(ngModel)]="search" class="form-control" placeholder="search here">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Candidate Name</th>
+                <th>email</th>
+                <th>gender</th>
+                <th>cctc</th>
+                <th>Ectc</th>
+                <th>currentOrg</th>
+                <th>date</th>
+                <th>totalExp</th>
+                <th>releventExp</th>
+                <th>noticePeriod</th>
+                <th>stack</th>
+                <th>location</th>
+                <th>contactNo</th>
+                <th>ready to relocate ?</th>
+                <th>interviewPannel</th>
+                <!-- <th>Interview Panel </th> -->
+
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of scData | filterPipe:search  ">
+                <td>{{user.id}}</td>
+                <td>{{user.cname}}</td>
+                <td>{{user.email}}
+                <td>{{user.gender}}</td>
+                <td>{{user.cctc}}</td>
+                <td>{{user.ectc}}</td>
+                <td>{{user.currentOrg}}</td>
+                <td>{{user.date}}</td>
+                <td>{{user.totalExp}}</td>
+                <td>{{user.releventExp}}</td>
+                <td>{{user.noticePeriod}}</td>
+                <td>{{user.stack}}</td>
+                <td>{{user.location}}</td>
+                <td>{{user.contactNo}}</td>
+                <td>{{user.relocate}}</td>
+                <td>{{user.interviewPannel}}</td>
+                <td>
+                    <button type="button" class="btn btn-outline-success" data-toggle="modal"
+                        data-target="#exampleModalLong" (click)="getalldata(user)">Edit</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                        data-target="#exampleModaldelete">Remove</button>
+                     <!-- Delete modal -->
+                    <div class="modal fade" id="exampleModaldelete" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Alert..!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you want to delete..!
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-dan" (click)="deleteUser(user.id)">Delete user</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--update modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit Schedule details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="PUT" #form="ngForm" (ngSubmit)="updateData(form)">
+                    <div class="card card-body ">
+                        <input type="hidden" class="form-control" name="id" id="id" placeholder="Enter Candidate name"
+                            #id="ngModel" [(ngModel)]='selectData.id'>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Candidate name</label>
+                            <input type="text" class="form-control" name="cname" id="cname"
+                                placeholder="Enter Candidate name" #cname="ngModel" [(ngModel)]='selectData.cname'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email"
+                                #email="ngModel" [(ngModel)]='selectData.email'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">CCTC</label>
+                            <input type="text" class="form-control" name="cctc" id="cctc" placeholder="Enter CCTC"
+                                #cctc="ngModel" [(ngModel)]='selectData.cctc'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">select gender</label>
+                            <input type="text" class="form-control" name="gender" id="gender" placeholder="Enter gender"
+                                #gender="ngModel" [(ngModel)]='selectData.gender'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Current org</label>
+                            <input type="text" class="form-control" name="currentOrg" id="currentOrg"
+                                placeholder="Enter Current org" #currentOrg="ngModel"
+                                [(ngModel)]='selectData.currentOrg'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">ECTC</label>
+                            <input type="text" class="form-control" name="ectc" id="ectc" placeholder="Enter ECTC"
+                                #ectc="ngModel" [(ngModel)]='selectData.ectc'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"> Schedule date and Time</label>
+                            <input type="datetime" class="form-control" name="date" id="date"
+                                placeholder="Enter Schedule date and Time" #date="ngModel"
+                                [(ngModel)]='selectData.date'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Total Experiance</label>
+                            <input type="text" class="form-control" name="totalExp" id="totalExp"
+                                placeholder="Enter Total Experiance" #totalExp="ngModel"
+                                [(ngModel)]='selectData.totalExp'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Relevent exp</label>
+                            <input type="text" class="form-control" name="releventExp" id="releventExp"
+                                placeholder="Enter Relevent exp" #releventExp="ngModel"
+                                [(ngModel)]='selectData.releventExp'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Notice period</label>
+                            <input type="text" class="form-control" name="noticePeriod" id="noticePeriod"
+                                placeholder="Enter Notice period" #noticePeriod="ngModel"
+                                [(ngModel)]='selectData.noticePeriod'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Select stack</label>
+                            <input type="text" class="form-control" name="stack" id="stack" placeholder="Enter stack"
+                                #stack="ngModel" [(ngModel)]='selectData.stack'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Location</label>
+                            <input type="text" class="form-control" name="location" id="location"
+                                placeholder="Enter location" #location="ngModel" [(ngModel)]='selectData.location'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Contact no</label>
+                            <input type="number" class="form-control" name="contactNo" id="contactNo"
+                                placeholder="Enter Contact no" #contactNo="ngModel" [(ngModel)]='selectData.contactNo'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Ready to relocate</label>
+                            <input type="text" class="form-control" name="relocate" id="relocate"
+                                placeholder="Enter relocation" #relocate="ngModel" [(ngModel)]='selectData.relocate'>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Interview Pannel</label>
+                            <input type="text" class="form-control" name="interviewPannel" id="interviewPannel"
+                                placeholder="Enter Interview Pannel" #interviewPannel="ngModel"
+                                [(ngModel)]='selectData.interviewPannel'>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-outline-success">Update changes</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
